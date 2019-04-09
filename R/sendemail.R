@@ -51,6 +51,7 @@ function(message,
          charset.subject = NULL,
          charset.message = NULL,
          charset.html = NULL,
+         configurationsetname = NULL
          ...) {
     query <- list(Source = from)
     
@@ -78,6 +79,9 @@ function(message,
         query[["Message.Subject.Data"]] <- subject
         if (!is.null(charset.subject)) {
             query[["Message.Subject.Charset"]] <- charset.subject
+        }
+        if(!is.null(configurationsetname)) {
+            query[["ConfigurationSetName"]] <- configurationsetname
         }
     }
     
